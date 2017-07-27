@@ -142,8 +142,16 @@ addPlaylist: function (name) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
 printSearchResults: function(query) {
+  result =[];
+  for(i = 1; i < Object.keys(this.tracks).length + 1; i++){
+    var T = "t0" + i;
+    var temp = this.tracks[T];
+    if(temp.name.includes(query) || temp.artist.includes(query) || temp.album.includes(query)){
+    result.push(T);
+    }
+  }
+  return(result);
 
 }
-
 }
-console.log(library.printPlaylist("p01"));
+
